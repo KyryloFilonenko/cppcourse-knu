@@ -15,11 +15,11 @@
 int main() {
   std::cout << "Using literals of different number types:\n";
   print(5);
-  print(5/2);           //FIXME
+  print(5./2);           //FIXME+
   print(100/2ull);
   print(2 + 4ull);
   print(2.f + 4ull);
-  print(0u - 1u);       // FIXME
+  print(0 - 1);       // FIXME+
   print(1.0000000001f); // FIXME Why is this number not represented correctly?
   print(1. + 1.E-18);   // FIXME
 
