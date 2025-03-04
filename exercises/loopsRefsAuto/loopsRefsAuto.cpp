@@ -45,3 +45,5 @@ int main() {
 // Think about which loop needs write access to the DontCopyMe.
 // Make sure that all references that don't need write access are const.
 // Hint: C++ understands "auto const".
+
+// В завданні 1 необхідний доступ для запису, в заданні 2 не потрібно доступ до зміни, тому ми і дописуємо const
