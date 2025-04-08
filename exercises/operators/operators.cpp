@@ -4,7 +4,82 @@
 
 class Fraction {
  public:
-  // TODO: constructors and operators
+    // Constructors
+  Fraction(unsigned int num = 0, unsigned int denom = 1) : m_num(num), m_denom(denom) {
+    normalize();
+  }
+
+  // Constructor for integer values (e.g., Fraction f = 3;)
+  Fraction(int value) : m_num(value), m_denom(1) {}
+
+  // Operator *= for Fraction
+  Fraction& operator*=(const Fraction& other) {
+    m_num *= other.m_num;
+    m_denom *= other.m_denom;
+    normalize();
+    return *this;
+  }
+
+  // Operator *= for int
+  Fraction& operator*=(int value) {
+    m_num *= value;
+    normalize();
+    return *this;
+  }
+
+  // Operator ==
+  friend bool operator==(const Fraction& a, const Fraction& b) {
+    return a.m_num == b.m_num && a.m_denom == b.m_denom;
+  }
+
+  // Operator != in terms of ==
+  friend bool operator!=(const Fraction& a, const Fraction& b) {
+    return !(a == b);
+  }
+
+  // Operator <
+  friend bool operator<(const Fraction& a, const Fraction& b) {
+    return a.m_num * b.m_denom < b.m_num * a.m_denom;
+  }
+
+  // Operator <= in terms of < and ==
+  friend bool operator<=(const Fraction& a, const Fraction& b) {
+    return (a < b || a == b);
+  }
+
+  // Operator > in terms of <
+  friend bool operator>(const Fraction& a, const Fraction& b) {
+    return b < a;
+  }
+
+  // Operator >= in terms of <
+  friend bool operator>=(const Fraction& a, const Fraction& b) {
+    return !(a < b);
+  }
+
+  // Operator *
+  friend Fraction operator*(Fraction a, const Fraction& b) {
+    a *= b;
+    return a;
+  }
+
+  // Operator * with int (Fraction * int)
+  friend Fraction operator*(Fraction a, int b) {
+    a *= b;
+    return a;
+  }
+
+  // Operator * with int (int * Fraction)
+  friend Fraction operator*(int a, Fraction b) {
+    b *= a;
+    return b;
+  }
+
+  // Operator <<
+  friend std::ostream& operator<<(std::ostream& os, const Fraction& f) {
+    os << f.m_num << '/' << f.m_denom;
+    return os;
+  }
 
  private:
   void normalize() {
