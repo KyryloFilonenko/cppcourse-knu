@@ -17,5 +17,14 @@ int main() {
     std::cout << "Hexagon through a reference to Polygon -> perimeter = " << poly.computePerimeter() << std::endl;
 
     // retry virtual method
+    std::cout << "\n=== Retrying with RegularPolygon references (virtual function behavior) ===\n";
+
+    RegularPolygon &pentaRef = penta;
+    RegularPolygon &hexaRef = hexa;
+    RegularPolygon &hexRef = hex;
+
+    std::cout << "Pentagon via base class ref -> perimeter = " << pentaRef.computePerimeter() << std::endl;
+    std::cout << "Hexagon via base class ref -> perimeter = " << hexaRef.computePerimeter() << std::endl;
+    std::cout << "Another Hexagon via base class ref -> perimeter = " << hexRef.computePerimeter() << std::endl;
 
 }
