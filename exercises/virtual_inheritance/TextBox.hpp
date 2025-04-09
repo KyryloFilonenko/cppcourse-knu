@@ -20,13 +20,13 @@ protected:
 
 class Text : public virtual Drawable {
 public:
-    Text(int id, std::string content);
+    Text(int id, const std::string &content);
 protected:
     std::string m_content;
 };
 
 class TextBox : public Rectangle, public Text {
 public:
-    TextBox(std::string content,
+    TextBox(const std::string &content,
             float width, float height);
 };

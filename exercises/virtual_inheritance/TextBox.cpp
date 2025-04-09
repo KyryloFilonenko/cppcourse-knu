@@ -10,9 +10,9 @@ void Drawable::draw() const {
 Rectangle::Rectangle(int id, float width, float height) :
     Drawable(id), m_width(width), m_height(height) {}
 
-Text::Text(int id, std::string content) :
+Text::Text(int id, const std::string &content) :
     Drawable(id), m_content(content) {}
 
-TextBox::TextBox(std::string content,
+TextBox::TextBox(const std::string &content,
                  float width, float height) :
     Drawable(3), Rectangle(1, width, height), Text(2, content) {}
