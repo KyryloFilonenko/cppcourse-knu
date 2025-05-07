@@ -1,5 +1,5 @@
 
-
+#include <memory>
 #include <iostream>
 #include <array>
 
@@ -53,9 +53,8 @@ void doStuff() {
 
     // MAKE YOUR CHANGES IN THIS FUNCTION
 
-    auto obj = new LargeObject ;
+    std::unique_ptr<LargeObject> obj = std::make_unique<LargeObject>();
     changeLargeObject(*obj) ;
-    delete obj ;
 
 }
 
